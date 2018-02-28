@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import _ from "lodash"
+import _xor from "lodash/xor"
 class Tree extends React.Component {
   constructor(props){
     super(props)
@@ -29,7 +29,7 @@ class Tree extends React.Component {
     const expanded = !treeNode.props.expanded;
     let expandedKeys = [...state.expandedKeys];
     const eventKey = treeNode.props.eventKey;
-    expandedKeys=_.xor(expandedKeys, [eventKey])
+    expandedKeys=_xor(expandedKeys, [eventKey])
     this.setState({expandedKeys})
 
     props.onExpand(expandedKeys, { node: treeNode, expanded });
