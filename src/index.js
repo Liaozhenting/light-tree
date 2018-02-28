@@ -1,8 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.less';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Tree from './Tree';
+import TreeNode from './TreeNode';
+Tree.TreeNode = TreeNode;
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+export { TreeNode };
+export default Tree;

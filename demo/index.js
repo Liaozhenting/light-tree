@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import "./index.less"
-import Tree from './components/tree/index'
+import React from 'react';
+import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+
+import Tree from './light-tree/index'
 const { TreeNode } = Tree;
-
-
 const treeData = [{
   title: '0-0',
   key: '0-0',
@@ -40,9 +40,9 @@ const treeData = [{
   key: '0-2',
 }];
 
-class App extends Component {
+class App extends React.Component {
 
-  renderTreeNodes = (data) => {
+  renderTreeNodes=(data)=> {
     return data.map((item) => {
       if (item.children) {
         return (
@@ -68,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'));
