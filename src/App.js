@@ -1,17 +1,3 @@
-# light-tree
-```
-npm install 
-npm start
-```
-or 
-```
-yarn install
-yarn start
-```
-![](/show.png)
-## Use
-App.js
-```js
 import React, { Component } from 'react';
 import "./index.less"
 import Tree from './components/tree/index'
@@ -29,6 +15,17 @@ const treeData = [{
       { title: '0-0-0-1', key: '0-0-0-1' },
       { title: '0-0-0-2', key: '0-0-0-2' },
     ],
+  }, {
+    title: '0-0-1',
+    key: '0-0-1',
+    children: [
+      { title: '0-0-1-0', key: '0-0-1-0' },
+      { title: '0-0-1-1', key: '0-0-1-1' },
+      { title: '0-0-1-2', key: '0-0-1-2' },
+    ],
+  }, {
+    title: '0-0-2',
+    key: '0-0-2',
   }],
 }, {
   title: '0-1',
@@ -72,4 +69,3 @@ class App extends Component {
 }
 
 export default App;
-```
