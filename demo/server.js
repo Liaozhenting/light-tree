@@ -1,5 +1,6 @@
 /* eslint-disable */
 const webpack = require('webpack');
+const cp = require('child_process')
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 
@@ -12,4 +13,6 @@ new WebpackDevServer(webpack(config), {
         console.log(err);
     }
     console.log(`Listening at localhost:${port}`);
+
+    cp.exec(`start http://localhost:${port}`)
 });
