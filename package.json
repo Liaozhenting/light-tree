@@ -11,7 +11,7 @@
   "main": "lib/index",
   "license": "MIT",
   "scripts": {
-    "start": "cd demo && node server.js",
+    "start": "cd demo && node script.server.js",
     "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./src/index.less ./assets/index.css && cd ./scripts && node copy.js"
   },
   "devDependencies": {

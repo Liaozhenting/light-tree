@@ -5,7 +5,7 @@ module.exports = {
     entry: [
         'babel-polyfill',
         'webpack-dev-server/client?http://0.0.0.0:3000',
-        path.join(__dirname, 'index.js')
+        path.join(__dirname, 'demo.js')
     ],
     output: {
         filename: 'light-tree.js',
