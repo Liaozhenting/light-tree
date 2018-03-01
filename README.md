@@ -2,6 +2,7 @@
 
 ```
 npm install 
+npm run build
 npm start
 ```
 view in browser at http://localhost:3000
