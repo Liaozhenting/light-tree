@@ -1,11 +1,3 @@
-# light-tree
-
-![](/show.png)
-## Use in production
-```
-npm install --save light-tree
-```
-
 ```js
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -70,11 +62,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
-
-## Develop
-```
-npm install 
-npm run build
-npm start
-```
-view in browser at http://localhost:8082

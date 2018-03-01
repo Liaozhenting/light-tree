@@ -4,8 +4,8 @@ module.exports = {
     devtool: "source-map",
     entry: [
         'babel-polyfill',
-        'webpack-dev-server/client?http://0.0.0.0:3000',
-        path.join(__dirname, 'demo.js')
+        'webpack-dev-server/client?http://0.0.0.0:8082',
+        path.join(__dirname, 'basic.js')
     ],
     output: {
         filename: 'light-tree.js',

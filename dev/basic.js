@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 //import the libarary
-import Tree from './light-tree'
-import './light-tree/assets/index.css'
+import Tree from '../src/index'
+import '../src/index.less'
 
 const { TreeNode } = Tree;
 const treeData = [{

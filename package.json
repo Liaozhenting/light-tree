@@ -1,6 +1,6 @@
 {
   "name": "light-tree",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "tree ui component for react",
   "keywords": [
     "react",
@@ -11,8 +11,8 @@
   "main": "lib/index",
   "license": "MIT",
   "scripts": {
-    "start": "cd demo && node script.server.js",
-    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./src/index.less ./assets/index.css && cd ./scripts && node copy.js"
+    "start": "cd dev && node script.server.js",
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./src/index.less ./assets/index.css"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

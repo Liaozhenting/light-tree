@@ -4,7 +4,7 @@ const cp = require('child_process')
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8082;
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,

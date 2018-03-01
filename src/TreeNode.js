@@ -10,6 +10,7 @@ class TreeNode extends React.Component {
   static defaultProps = {
     prefixCls: 'light-tree',
   };
+  
   renderSwitcher(props, expandedState) {
     const prefixCls = props.prefixCls;
     const switcherCls = classNames(
