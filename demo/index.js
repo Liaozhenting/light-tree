@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-import Tree from './light-tree/index'
+import Tree from './light-tree/lib/index.js'
+import './light-tree/assets/index.css'
 const { TreeNode } = Tree;
 const treeData = [{
   title: '0-0',

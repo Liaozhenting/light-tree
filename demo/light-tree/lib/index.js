@@ -13,8 +13,6 @@ var _TreeNode = require('./TreeNode');
 
 var _TreeNode2 = _interopRequireDefault(_TreeNode);
 
-require('./index.less');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _Tree2.default.TreeNode = _TreeNode2.default;
