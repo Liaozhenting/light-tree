@@ -1,5 +1,7 @@
 # light-tree
 
+Simple React tree component
+
 ![](/show.png)
 ## Use in production
 ```

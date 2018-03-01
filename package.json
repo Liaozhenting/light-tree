@@ -10,9 +10,10 @@
   ],
   "main": "lib/index",
   "license": "MIT",
+  "homepage":"https://github.com/Liaozhenting/light-tree",
   "scripts": {
     "start": "cd dev && node script.server.js",
-    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./src/index.less ./assets/index.css"
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./assets/index.less ./assets/index.css"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

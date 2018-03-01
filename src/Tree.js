@@ -1,16 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
 import _xor from "lodash/xor"
+import {
+  traverseTreeNodes
+} from "./utils"
 class Tree extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      expandedKeys:[]
+      expandedKeys:this.calcExpandedKeys(props)
     }
   }
   
   static defaultProps = {
     prefixCls: 'light-tree',
+    defaultExpandAll: false
   };
   renderTreeNode (child, index, level = 0)  {
     const { state, props } = this;
@@ -35,11 +39,27 @@ class Tree extends React.Component {
     props.onExpand(expandedKeys, { node: treeNode, expanded });
 
   }
+  calcExpandedKeys(props,isNotInit){
+    const expandedKeys  = props.expandedKeys||[];
+    let expandAll = props.defaultExpandAll;
+    if(!expandAll){
+      return expandedKeys
+    }
+    const filterExpandedKeysSet = {}
+    traverseTreeNodes(props.children,(item,index,pos,key)=>{
+      if(expandAll){
+        filterExpandedKeysSet[key] = true;
+      }
+    })
+
+    const filterExpandedKeys = Object.keys(filterExpandedKeysSet);
+    return filterExpandedKeys.length?filterExpandedKeys : expandedKeys
+  }
   render () {
     
     const  props  = this.props;
     let prefixCls = props.prefixCls;
-    return <ul className={prefixCls}>
+    return <ul className={prefixCls} >
       {React.Children.map(props.children, this.renderTreeNode, this)}
     </ul>
   }

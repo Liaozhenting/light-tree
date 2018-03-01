@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 //import the libarary
 import Tree from '../src/index'
-import '../src/index.less'
+import '../assets/index.less'
 
 const { TreeNode } = Tree;
 const treeData = [{
@@ -51,7 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Tree onExpand={this.onExpand}>
+        <Tree onExpand={this.onExpand} defaultExpandAll>
           {this.renderTreeNodes(treeData)}
         </Tree>
       </div>
