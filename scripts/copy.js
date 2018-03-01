@@ -10,6 +10,8 @@ var fs = require('fs'),
  * @param{ String } 复制到指定的目录
 08
  */
+fs.mkdirSync(`../demo/light-tree`, function () {
+});
 var copy = function (src, dst) {
     // 读取目录中的所有文件/目录
     fs.readdir(src, function (err, paths) {
