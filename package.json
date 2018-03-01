@@ -12,7 +12,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cd demo && node server.js",
-    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib && babel src --out-dir ./demo/light-tree/lib && lessc ./src/index.less ./assets/index.css && lessc ./src/index.less ./demo/light-tree/assets/index.css"
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib  && lessc ./src/index.less ./assets/index.css && cd ./scripts && node copy.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
