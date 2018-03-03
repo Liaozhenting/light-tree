@@ -21,9 +21,9 @@ const treeData = [{
   title: '0-1',
   key: '0-1',
   children: [
-    { title: '0-1-0-0', key: '0-1-0-0' },
-    { title: '0-1-0-1', key: '0-1-0-1' },
-    { title: '0-1-0-2', key: '0-1-0-2' },
+    { title: '0-1-0', key: '0-1-0' },
+    { title: '0-1-1', key: '0-1-1' },
+    { title: '0-1-2', key: '0-1-2' },
   ],
 }, {
   title: '0-2',
@@ -47,10 +47,17 @@ class App extends React.Component {
   onExpand(expandKey) {
     console.log('onExpand', expandKey)
   }
+  onCheck(checkedKey){
+    console.log('onCheck',checkedKey)
+  }
   render() {
     return (
       <div className="App">
-        <Tree onExpand={this.onExpand} defaultExpandAll>
+        <Tree onExpand={this.onExpand} 
+        onCheck={this.onCheck}
+        defaultExpandAll
+        checkable
+        >
           {this.renderTreeNodes(treeData)}
         </Tree>
       </div>

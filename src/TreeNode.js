@@ -10,7 +10,7 @@ class TreeNode extends React.Component {
   static defaultProps = {
     prefixCls: 'light-tree',
   };
-  
+
   renderSwitcher(props, expandedState) {
     const prefixCls = props.prefixCls;
     const switcherCls = classNames(
@@ -24,6 +24,24 @@ class TreeNode extends React.Component {
     this.props.root.onExpand(this);
 
   }
+  onCheck = ()=> this.props.root.onCheck(this)
+  renderCheckbox(props) {
+    const prefixCls = props.prefixCls;
+    const checkboxCls = {
+      [`${prefixCls}-checkbox`]: true
+    }
+    if (props.checked) {
+      checkboxCls[`${prefixCls}-checkbox-checked`] = true;
+    }
+    if(props.disabled || props.disableCheckbox){
+      checkboxCls[`${prefixCls}-checkbox-disabled`] = true;
+      return  <span className={classNames(checkboxCls)}>{null}</span>
+    }
+    return <span
+      className={classNames(checkboxCls)}
+      onClick={this.onCheck}
+    ></span>
+  }
   renderChildren(props) {
     let prefixCls = props.prefixCls;
     let children = null;
@@ -33,7 +51,7 @@ class TreeNode extends React.Component {
 
     let newChildren = children;
     let childrenCls = {
-      [`${prefixCls}-child-tree `]:true,
+      [`${prefixCls}-child-tree `]: true,
       [`${props.prefixCls}-child-tree-open`]: props.expanded,
     }
     newChildren = (
@@ -59,12 +77,12 @@ class TreeNode extends React.Component {
       const title = <span className={`${prefixCls}-title`}>{content}</span>
 
       let fileTypeCls = {
-        [`${prefixCls}-iconEle`]:true,
+        [`${prefixCls}-iconEle`]: true,
       }
-      if(canRenderSwitcher){
-        fileTypeCls[`${prefixCls}-icon__open`]=props.expanded;
-        fileTypeCls[`${prefixCls}-icon__close`]=!props.expanded;
-      } else{
+      if (canRenderSwitcher) {
+        fileTypeCls[`${prefixCls}-icon__open`] = props.expanded;
+        fileTypeCls[`${prefixCls}-icon__close`] = !props.expanded;
+      } else {
         fileTypeCls[`${prefixCls}-icon__docu`] = true;
       }
       return <span className={`${prefixCls}-node-content`}>
@@ -77,7 +95,9 @@ class TreeNode extends React.Component {
     );
     return <li>
       {canRenderSwitcher ? this.renderSwitcher(props, expandedState) : renderNoopSwitcher()}
+      {props.checkable ? this.renderCheckbox(props) : null}
       {selectorHandler()}
+      
       {newChildren}
     </li>
   }

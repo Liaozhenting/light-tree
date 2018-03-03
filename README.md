@@ -10,7 +10,6 @@ npm install --save light-tree
 
 ```js
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 //import the libarary
 import Tree from 'light-tree'
@@ -33,9 +32,9 @@ const treeData = [{
   title: '0-1',
   key: '0-1',
   children: [
-    { title: '0-1-0-0', key: '0-1-0-0' },
-    { title: '0-1-0-1', key: '0-1-0-1' },
-    { title: '0-1-0-2', key: '0-1-0-2' },
+    { title: '0-1-0', key: '0-1-0' },
+    { title: '0-1-1', key: '0-1-1' },
+    { title: '0-1-2', key: '0-1-2' },
   ],
 }, {
   title: '0-2',
@@ -79,4 +78,4 @@ npm install
 npm run build
 npm start
 ```
-view in browser at http://localhost:8082
+Modify the source code under the folder ./src,You can view the effect  in browser at http://localhost:8082
