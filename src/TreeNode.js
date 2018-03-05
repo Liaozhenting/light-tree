@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-
 class TreeNode extends React.Component {
   state = {}
   constructor(props) {
@@ -24,7 +23,16 @@ class TreeNode extends React.Component {
     this.props.root.onExpand(this);
 
   }
-  onCheck = ()=> this.props.root.onCheck(this)
+  onCheck = () => this.props.root.onCheck(this)
+  // onMouseOverCapture(evt) {
+  //   evt.stopPropagation()
+  //   console.log(evt.currentTarget)
+  //   addClass(evt.currentTarget,'mouseover')
+  // }
+  // onMouseLeaveCapture(evt) {
+  //   evt.stopPropagation()
+  //   removeClass(evt.currentTarget,'mouseover')
+  // }
   renderCheckbox(props) {
     const prefixCls = props.prefixCls;
     const checkboxCls = {
@@ -33,9 +41,9 @@ class TreeNode extends React.Component {
     if (props.checked) {
       checkboxCls[`${prefixCls}-checkbox-checked`] = true;
     }
-    if(props.disabled || props.disableCheckbox){
+    if (props.disabled || props.disableCheckbox) {
       checkboxCls[`${prefixCls}-checkbox-disabled`] = true;
-      return  <span className={classNames(checkboxCls)}>{null}</span>
+      return <span className={classNames(checkboxCls)}>{null}</span>
     }
     return <span
       className={classNames(checkboxCls)}
@@ -51,20 +59,22 @@ class TreeNode extends React.Component {
 
     let newChildren = children;
     let childrenCls = {
+      [`${prefixCls}`]: true,
       [`${prefixCls}-child-tree `]: true,
       [`${props.prefixCls}-child-tree-open`]: props.expanded,
     }
-    newChildren = (
+    newChildren = (children?
       <ul className={classNames(childrenCls)}>
         {
           React.Children.map(children, (item, index) => {
             return props.root.renderTreeNode(item, index, props.pos)
           }, props.root)
         }
-      </ul>
+      </ul>:null
     )
     return newChildren;
   }
+
   render() {
     const { props } = this;
     let prefixCls = props.prefixCls
@@ -93,12 +103,16 @@ class TreeNode extends React.Component {
     const renderNoopSwitcher = () => (
       <span className={`${prefixCls}-switcher ${prefixCls}-switcher-noop`} />
     );
-    return <li>
-      {canRenderSwitcher ? this.renderSwitcher(props, expandedState) : renderNoopSwitcher()}
-      {props.checkable ? this.renderCheckbox(props) : null}
-      {selectorHandler()}
-      
-      {newChildren}
+    // return <li onMouseOverCapture={evt => this.onMouseOverCapture(evt)}  onMouseLeaveCapture={evt => this.onMouseLeaveCapture(evt)}>
+    return <li >
+
+      <div className={`${prefixCls}-whole-content`}>
+        {canRenderSwitcher ? this.renderSwitcher(props, expandedState) : renderNoopSwitcher()}
+        {props.checkable ? this.renderCheckbox(props) : null}
+        {selectorHandler()}
+        {newChildren}
+      </div>
+
     </li>
   }
 }
